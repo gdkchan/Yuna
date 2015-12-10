@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Yuna</string>
+    <string name="mnu_about">Sobre</string>
+    <string name="mnu_share">Compartilhar</string>
+    <string name="mnu_download">Baixar</string>
+    <string name="searching">A busca foi iniciada...</string>
+    <string name="searching_more">Carregando mais resultados...</string>
+    <string name="loading">Carregando...</string>
+    <string name="share_txt">Compartilhar vídeo</string>
+</resources>
