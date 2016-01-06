@@ -116,7 +116,7 @@ public class VideoStream {
         String FunctionName = FunctionNameMatch.group(1);
         FunctionName = FunctionName.replace("$", "\\$");
 
-        Matcher FunctionMatch = Pattern.compile(String.format("(?s)%s=function\\((\\w+)\\)\\{(.+?)\\}", FunctionName)).matcher(Code);
+        Matcher FunctionMatch = Pattern.compile(String.format("(?s),%s=function\\((\\w+)\\)\\{(.+?)\\}", FunctionName)).matcher(Code);
         FunctionMatch.find();
         String Var = FunctionMatch.group(1);
         String FunctionCode = FunctionMatch.group(2);
@@ -133,6 +133,7 @@ public class VideoStream {
         for (int i = 0; i < Lines.length; i++)
         {
             String Line = Lines[i].trim();
+            if (Line.contains(".split") || Line.contains(".join")) continue;
 
             //Comandos: Split*, Reverse, Slice, Swap, Join*
             //* Apenas necessário no código JavaScript
