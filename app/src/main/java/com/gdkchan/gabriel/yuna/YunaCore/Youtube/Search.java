@@ -45,7 +45,7 @@ public class Search
                         String Duration = HtmlUtils.GetTagContent(SearchResult, "span", "video-time");
                         String ThumbURL = HtmlUtils.GetTagParameterContent(SearchResult, "img", "data-thumb");
                         if (ThumbURL == null) ThumbURL = HtmlUtils.GetTagParameterContent(SearchResult, "img", "src");
-                        ThumbURL = "https:" + ThumbURL;
+                        if (!ThumbURL.startsWith("http")) ThumbURL = "https:" + ThumbURL;
 
                         Output.add(new SearchItem(Title, Description, Uploader, Duration, URL, ThumbURL));
                     }

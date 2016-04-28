@@ -12,8 +12,7 @@ public class HtmlUtils {
         int ContentIndex = -1;
         int StartIndex = 0;
         int OpenTags = 0;
-        for (;;)
-        {
+        for (;;) {
             int PositionOpen = HTML.indexOf("<" + TagName, StartIndex);
             int PositionClose = HTML.indexOf("</" + TagName, StartIndex);
             int Position = Math.min(PositionOpen, PositionClose);
