@@ -116,7 +116,7 @@ public class VideoStream {
         String FunctionName = FunctionNameMatch.group(1);
         FunctionName = FunctionName.replace("$", "\\$");
 
-        Matcher FunctionMatch = Pattern.compile(String.format("(?s),%s=function\\((\\w+)\\)\\{(.+?)\\}", FunctionName)).matcher(Code);
+        Matcher FunctionMatch = Pattern.compile(String.format("(?s)%s=function\\((\\w+)\\)\\{(.+?)\\}", FunctionName)).matcher(Code);
         FunctionMatch.find();
         String Var = FunctionMatch.group(1);
         String FunctionCode = FunctionMatch.group(2);
