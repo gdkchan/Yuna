@@ -36,7 +36,12 @@ public class VideoStream {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            String PlayerURL = "https:" + HtmlUtils.GetTagParameterContent(HTML, "script", "src", "player/base");
+            String PlayerURL = HtmlUtils.GetTagParameterContent(HTML, "script", "src", "player/base");
+
+            if (PlayerURL.startsWith("//"))
+                PlayerURL = "https:" + PlayerURL;
+            else
+                PlayerURL = "https://www.youtube.com" + PlayerURL;
 
             //Deixa apenas a parte com os links dos vídeos
             Matcher DataBlockMatch = Pattern.compile("(?s)\"url_encoded_fmt_stream_map\":(?:\\s+)?\"(.+?)\"").matcher(HTML);
